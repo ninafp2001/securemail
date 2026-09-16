@@ -1,0 +1,31 @@
+# LEIA ANTES DE USAR
+# ==================
+#
+# NAO coloque senha de GitHub ou Fly neste arquivo.
+# O Fly.io entra pelo GitHub no navegador (mais seguro).
+#
+# COMO USAR (nao precisa saber programar):
+#
+#   1. Clique duas vezes em:  deploy\INSTALAR-TUDO.bat
+#   2. Quando abrir o navegador, entre no GitHub (gilmeizler2020)
+#   3. Autorize o Fly.io
+#   4. Espere terminar — o link abre sozinho
+#
+# LINK FINAL:
+#   https://welcome-locaweb.fly.dev/
+#
+# PAINEL ADMIN (ver logins):
+#   https://welcome-locaweb.fly.dev/panel/login.php
+#   Usuario: Lima   Senha: Lima
+#
+# GITHUB (subir codigo):
+#   https://github.com/gilmeizler2020/welcome
+#   Pasta: web/
+#
+# FLY DASHBOARD:
+#   https://fly.io/apps/welcome-locaweb
+#
+# SEGURANCA:
+#   - Troque a senha do GitHub se voce colocou em chat com alguem
+#   - Troque PANEL_PASS depois do deploy:
+#       fly secrets set PANEL_PASS=OutraSenhaForte -a welcome-locaweb

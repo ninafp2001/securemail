@@ -1,0 +1,88 @@
+/* Ponte mínima — layout original email.uolhost.com.br */
+/* base.css da UOL usa .base { display:none } até o Angular adicionar .show */
+.base {
+    display: block !important;
+}
+
+.base.show {
+    animation: none;
+}
+#uol-logout-notice,
+.uol-logout-notice {
+    background: #fff3cd;
+    color: #856404;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+#message:not(:empty) {
+    display: block;
+    margin: 10px 0 0;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #c0392b;
+    text-align: center;
+}
+
+#message.uol-ok:not(:empty) {
+    color: #1e8449;
+}
+
+body.logging-in #login_submit {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* Layout genérico (KingHost, Terra, HostGator, etc.) */
+.login-wrap, .wrap, .uol-wrap, .bol-wrap {
+    min-height: 100vh;
+}
+
+.login-box input, .card input, .box input, .uol-card input, .bol-card input, .card-body input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#message:not(:empty) {
+    border-radius: 6px;
+    background: #fdecea;
+}
+
+#message.uol-ok:not(:empty) {
+    background: #eafaf1;
+}
+
+/* KingHost — mensagens no #divretorno como no site original */
+#divretorno:not(:empty) {
+    display: block;
+    margin-top: 12px;
+}
+#divretorno .alert-danger {
+    color: #a94442;
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+#divretorno .alert-success {
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #d6e9c6;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+@media (max-width: 640px) {
+    .login-wrap, .wrap, .box, .card, .uol-card, .bol-card {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .hero h1, .brand-header h1 {
+        font-size: 22px;
+    }
+}

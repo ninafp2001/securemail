@@ -1,0 +1,115 @@
+/* Ajustes responsivos — HTML original mail.terra.com.br */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+#trr-ctn-general {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.ctn-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.col-right,
+.col-left-full {
+    box-sizing: border-box;
+}
+
+.bxloginErro span {
+    display: block;
+    color: #c0392b;
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+body.logging-in .btn-login {
+    opacity: 0.75;
+    cursor: wait;
+}
+
+#message:not(:empty),
+.bxloginErro.uol-bridge-msg span {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    background: #fdecea;
+    color: #c0392b;
+    display: block;
+}
+
+.bxloginErro.uol-bridge-ok span {
+    background: #eafaf1;
+    color: #1e8449;
+}
+
+@media (max-width: 960px) {
+    #trr-ctn-general {
+        width: 100% !important;
+        margin-top: 72px !important;
+        padding: 0 12px 24px;
+    }
+
+    .col-right {
+        width: 100% !important;
+        order: 1;
+    }
+
+    .col-left-full {
+        width: 100% !important;
+        order: 2;
+    }
+
+    .mod-login {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    .mnu-mail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        padding: 0;
+    }
+
+    .mnu-mail li {
+        width: auto !important;
+    }
+
+    .ifr-slider {
+        width: 100% !important;
+        max-height: 180px;
+    }
+
+    .ttl-mail span {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    #trr-ctn-general {
+        margin-top: 56px !important;
+        padding: 0 10px 20px;
+    }
+
+    .ifr-slider {
+        display: none;
+    }
+
+    .adv-area,
+    #adv-right {
+        display: none !important;
+    }
+
+    .campoTxt {
+        font-size: 16px !important;
+    }
+}

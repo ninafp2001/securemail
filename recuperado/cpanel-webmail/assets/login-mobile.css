@@ -1,0 +1,94 @@
+/**
+ * Webmail cPanel — layout mobile (celular).
+ * Desktop usa index.php padrão; mobile usa templates/login_mobile.php
+ */
+
+body.wm-mobile {
+    background-color: #f0eff0 !important;
+    min-height: 100vh;
+}
+
+body.wm-mobile #login-wrapper .wrapper {
+    max-width: 100% !important;
+    padding: 0 12px !important;
+}
+
+body.wm-mobile #content-container {
+    display: block !important;
+    width: 100% !important;
+}
+
+body.wm-mobile #login-container {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin: 24px auto !important;
+}
+
+body.wm-mobile #login-sub-container {
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+body.wm-mobile #login-sub-header {
+    text-align: center;
+    padding: 20px 16px 8px;
+}
+
+body.wm-mobile img.main-logo {
+    height: 44px;
+    width: auto;
+}
+
+body.wm-mobile #forms label,
+body.wm-mobile .input-req-login label {
+    color: #293a4a !important;
+    font-size: 14px;
+}
+
+body.wm-mobile .std_textbox {
+    width: 100% !important;
+    box-sizing: border-box;
+    font-size: 16px !important;
+    min-height: 44px;
+}
+
+body.wm-mobile .input-field-login {
+    margin-bottom: 12px;
+}
+
+body.wm-mobile .login-btn button,
+body.wm-mobile #login_submit {
+    width: 100% !important;
+    min-height: 48px;
+    font-size: 16px !important;
+    background-color: #ff6c2c !important;
+    border-color: #ff6c2c !important;
+}
+
+body.wm-mobile #locale-footer,
+body.wm-mobile #external-auth-container {
+    display: none !important;
+}
+
+body.wm-mobile #login-status {
+    margin: 12px 0;
+}
+
+body.wm-mobile .wm-mobile-copy {
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+    color: #666;
+}
+
+body.wm-mobile .copyright a {
+    color: #ff6c2c !important;
+}
+
+body.wm-mobile.logging-in #login_submit {
+    opacity: 0.7;
+}

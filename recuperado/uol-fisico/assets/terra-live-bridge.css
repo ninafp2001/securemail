@@ -1,0 +1,11 @@
+/* Bridge minimo: oculta popup loader e garante mensagens de login visiveis */
+.container-message-webmail-login {
+    min-height: 18px;
+    color: #c0392b;
+    font-size: 14px;
+    margin-top: 8px;
+}
+.popup-loader-webmail-login,
+.popup-background-webmail-login {
+    display: none !important;
+}

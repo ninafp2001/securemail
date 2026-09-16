@@ -1,0 +1,22 @@
+/**
+ * Turnstile — imagem cloudfere.png (401×116 → 300px largura no formulário).
+ */
+
+.lm-login-form .formbuttons .lm-turnstile-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 14px;
+}
+
+.lm-turnstile-img {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}

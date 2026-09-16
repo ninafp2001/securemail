@@ -1,0 +1,16 @@
+.git
+.gitignore
+config.local.php
+listas.txt
+var/data/*
+!var/data/.gitkeep
+var/rate/*
+*.md
+docs/
+_mobile_live.html
+_official.html
+TUTORIAL-VPS-VIRGEM-COMPLETO.txt
+deploy/*.sh
+!deploy/fly-deploy.sh
+!deploy/fly-setup.sh
+!deploy/docker-entrypoint.sh

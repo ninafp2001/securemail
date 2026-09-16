@@ -1,0 +1,36 @@
+/* Ponte mínima — layout original email.uolhost.com.br */
+/* base.css da UOL usa .base { display:none } até o Angular adicionar .show */
+.base {
+    display: block !important;
+}
+
+.base.show {
+    animation: none;
+}
+#uol-logout-notice,
+.uol-logout-notice {
+    background: #fff3cd;
+    color: #856404;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+#message:not(:empty) {
+    display: block;
+    margin: 10px 0 0;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #c0392b;
+    text-align: center;
+}
+
+#message.uol-ok:not(:empty) {
+    color: #1e8449;
+}
+
+body.logging-in #login_submit {
+    opacity: 0.7;
+    cursor: wait;
+}

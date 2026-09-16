@@ -1,0 +1,37 @@
+/**
+ * Mensagens do login — igual certo.png / webmail-seguro.com.br.
+ * Texto inline vermelho no topo (#message), NÃO tooltip laranja no botão.
+ */
+
+.lm-login-container #message {
+  display: block;
+  text-align: left;
+  margin: 0 0 10px;
+  min-height: 0;
+}
+
+.lm-login-container #message:empty {
+  display: none;
+  margin: 0;
+}
+
+.lm-login-container #message .warning,
+.lm-login-container #message .error {
+  color: #ed2350;
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.lm-login-container #message .loading {
+  color: #666;
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0;
+}

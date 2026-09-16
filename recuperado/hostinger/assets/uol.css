@@ -1,0 +1,175 @@
+/* Hostinger Mail — visual próximo ao mailpro.uol.com.br */
+:root {
+    --uol-orange: #ff6600;
+    --uol-orange-dark: #e55c00;
+    --uol-bar: #2b2b2b;
+    --uol-text: #333;
+    --uol-muted: #777;
+    --uol-bg: #ececec;
+    --uol-white: #fff;
+    --uol-error: #c0392b;
+    --uol-success: #1e8449;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body.uol-page {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--uol-bg);
+    color: var(--uol-text);
+}
+
+.uol-topbar {
+    height: 6px;
+    background: var(--uol-orange);
+}
+
+.uol-wrap {
+    min-height: calc(100vh - 6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 24px;
+}
+
+.uol-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--uol-white);
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.12);
+    padding: 28px 24px 24px;
+}
+
+.uol-header { text-align: center; margin-bottom: 24px; }
+.uol-logo { max-width: 200px; height: auto; }
+
+.uol-field { margin-bottom: 14px; }
+
+.uol-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 15px;
+    background: #fff;
+}
+
+.uol-input:focus {
+    outline: none;
+    border-color: var(--uol-orange);
+    box-shadow: 0 0 0 1px var(--uol-orange);
+}
+
+.uol-pass-wrap { position: relative; }
+.uol-pass-wrap .uol-input { padding-right: 76px; }
+
+.uol-show-pass {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: var(--uol-orange);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+#uol-message, .uol-status {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+    display: none;
+}
+
+.uol-status.error, #uol-message.error {
+    display: block;
+    background: #fdecea;
+    color: var(--uol-error);
+    border: 1px solid #f5c6cb;
+}
+
+.uol-status.success, #uol-message.success {
+    display: block;
+    background: #e8f8ef;
+    color: var(--uol-success);
+    border: 1px solid #b7e4c7;
+}
+
+.uol-status.info, #uol-message.info {
+    display: block;
+    background: #eef6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.uol-btn {
+    width: 100%;
+    height: 44px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 2px;
+    background: var(--uol-orange);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.uol-btn:hover { background: var(--uol-orange-dark); }
+.uol-btn:disabled { opacity: .65; cursor: wait; }
+
+.uol-links {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.uol-links a {
+    color: var(--uol-orange);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.uol-links a:hover { text-decoration: underline; }
+
+.uol-btn-outline {
+    display: block;
+    margin-top: 14px;
+    padding: 11px 16px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    color: #444;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.uol-footer {
+    margin-top: auto;
+    padding-top: 28px;
+    max-width: 520px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--uol-muted);
+}
+
+body.logging-in .uol-btn { opacity: .75; }
+
+.uol-notice-logout {
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 14px;
+}

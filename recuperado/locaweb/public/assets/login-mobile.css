@@ -1,0 +1,163 @@
+/**
+ * Login Locaweb — layout mobile (webmail-seguro.com.br).
+ * Somente @media: desktop permanece intacto (locamail.min.css).
+ */
+
+/* Tablet / mobile — rodapé cross-sell empilhado */
+@media (max-width: 900px) {
+  .lm-login-wrapper {
+    padding-bottom: 0;
+  }
+
+  #login-advertising-section {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #login-advertising-section .inner,
+  #login-advertising-section .inner .col,
+  #login-advertising-section .inner .list-products,
+  #login-advertising-section .inner .product-section,
+  #login-advertising-section .inner .title-section {
+    display: block;
+    width: 100%;
+  }
+
+  #login-advertising-section .inner .product-section {
+    border-left: none;
+    border-top: 3px solid rgba(0, 172, 200, 0.1);
+  }
+
+  .cross-sell-title {
+    padding-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .cross-sell-title .highlight {
+    display: inline;
+    font-size: inherit;
+  }
+}
+
+/* Celular — formulário em coluna, banner lateral oculto */
+@media (max-width: 768px) {
+  body.lm-login-page {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .lm-login-wrapper.lm-login-has-advertsing {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .lm-login-wrapper.lm-login-has-advertsing .lm-login {
+    top: auto;
+  }
+
+  .lm-login {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 100%;
+    padding: 20px 12px 12px;
+  }
+
+  .lm-login.login-phishing {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .lm-login-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lm-login-card-body {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .lm-login-container {
+    max-width: none;
+    width: 100%;
+    padding: 24px 20px;
+    box-sizing: border-box;
+  }
+
+  .lm-logo-label {
+    font-size: 17px;
+    margin-bottom: 18px;
+  }
+
+  .lm-login-input {
+    font-size: 16px;
+  }
+
+  .lm-login-banner-container {
+    display: none;
+  }
+
+  .lm-login-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    margin: 14px 0 6px;
+  }
+
+  .lm-login-container #forgotpass {
+    float: none;
+    margin-left: auto;
+    flex: 1 1 100%;
+    text-align: right;
+    margin-top: 2px;
+  }
+
+  .lm-login-submit {
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+  }
+
+  .lm-turnstile-img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Regras oficiais Locaweb (≤557px) — phishing + rodapé */
+@media screen and (max-width: 557px) {
+  .lm-login-wrapper.lm-login-has-advertsing .lm-login.login-phishing {
+    top: auto;
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+
+  .lm-login.login-phishing .phishing-message {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 0 16px;
+  }
+
+  .lm-login-container {
+    padding: 20px 16px;
+  }
+
+  #login-advertising-section {
+    padding: 16px;
+    margin-bottom: 0;
+  }
+
+  #login-advertising-section .inner .product-section {
+    padding: 16px 0;
+  }
+
+  #login-advertising-section .product-title {
+    margin-top: 12px;
+  }
+}

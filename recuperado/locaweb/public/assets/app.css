@@ -1,0 +1,134 @@
+:root {
+  --bg: #0f1419;
+  --card: #1a2332;
+  --text: #e8eef4;
+  --muted: #8b9cb3;
+  --accent: #3d8bfd;
+  --danger: #f07178;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.card {
+  width: min(420px, 100%);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+h1 { margin: 0 0 0.5rem; font-size: 1.35rem; }
+
+.muted { color: var(--muted); font-size: 0.9rem; }
+
+label {
+  display: block;
+  margin: 1rem 0 0.35rem;
+  font-size: 0.85rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #2d3a4d;
+  border-radius: 8px;
+  background: #0f1419;
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #2d3a4d;
+  color: var(--text);
+}
+
+button:disabled { opacity: 0.6; cursor: wait; }
+
+.result {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.result.ok {
+  background: rgba(80, 200, 120, 0.15);
+  color: #50c878;
+}
+
+.result.fail {
+  background: rgba(240, 113, 120, 0.15);
+  color: var(--danger);
+}
+
+.list-test {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #2d3a4d;
+}
+
+.list-test h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.35rem;
+  border-bottom: 1px solid #2d3a4d;
+}
+
+td.ok { color: #50c878; font-weight: 600; }
+td.fail { color: var(--danger); font-weight: 600; }
+
+.warn { color: #e6b84d; }
+
+.alert {
+  margin: 1rem 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(240, 113, 120, 0.15);
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.hidden { display: none; }
+
+code { font-size: 0.85em; }
+
+a { color: var(--accent); }

@@ -1,0 +1,268 @@
+/* Hostinger Mail login 2026 — clone estatico (layout claro 2 colunas PT) */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #fff;
+    color: #1d1e20;
+    font-family: "DM Sans", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hi2026-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hi2026-left {
+    flex: 1 1 420px;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+}
+
+.hi2026-left-inner {
+    width: 100%;
+    max-width: 400px;
+}
+
+.hi2026-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.hi2026-logo-mark {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.hi2026-logo-text {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #1d1e20;
+}
+
+.hi2026-left h1 {
+    margin: 0 0 24px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1d1e20;
+}
+
+.hi2026-field {
+    margin-bottom: 18px;
+}
+
+.hi2026-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d1e20;
+}
+
+.hi2026-input-wrap {
+    position: relative;
+}
+
+.hi2026-field input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 44px 12px 14px;
+    border: 1px solid #d8dae0;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    color: #1d1e20;
+}
+
+.hi2026-field input:focus {
+    border-color: #673de6;
+    box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.15);
+}
+
+.hi2026-toggle-pw {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    color: #727586;
+    line-height: 0;
+}
+
+.hi2026-forgot {
+    display: inline-block;
+    margin: 4px 0 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #673de6;
+    text-decoration: none;
+}
+
+.hi2026-forgot:hover { text-decoration: underline; }
+
+.hi2026-step-password[hidden] { display: none !important; }
+
+.hi2026-field-error {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: #d93025;
+}
+
+.hi2026-field-error[hidden] { display: none !important; }
+
+.hi2026-continue {
+    margin-top: 8px;
+}
+
+.hi2026-submit {
+    width: 100%;
+    min-height: 48px;
+    border: 0;
+    border-radius: 8px;
+    background: #673de6;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hi2026-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.hi2026-plans {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #727586;
+}
+
+.hi2026-plans a {
+    color: #1d1e20;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#message:not(:empty) {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fdecea;
+    color: #c0392b;
+}
+
+#message.uol-ok:not(:empty) {
+    background: #eafaf1;
+    color: #1e8449;
+}
+
+.hi2026-right {
+    flex: 1 1 480px;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px;
+    background:
+        radial-gradient(circle at 85% 100%, rgba(229, 54, 219, 0.14), transparent 55%),
+        radial-gradient(circle at 25% 70%, rgba(103, 61, 230, 0.12), transparent 60%),
+        linear-gradient(160deg, #ffffff 0%, #e9f3ff 50%, #efeaff 100%);
+}
+
+.hi2026-right-inner {
+    max-width: 520px;
+}
+
+.hi2026-right h2 {
+    margin: 0 0 14px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1d1e20;
+}
+
+.hi2026-right h2 span {
+    background: linear-gradient(101deg, #ff71ea -1.13%, #b58bff 28.23%, #3ab0ff 60.74%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hi2026-right .lead {
+    margin: 0 0 28px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3f3f46;
+}
+
+.hi2026-features {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+}
+
+.hi2026-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.45;
+    color: #1d1e20;
+}
+
+.hi2026-check {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #00b090;
+}
+
+.hi2026-trust {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #1d1e20;
+}
+
+.hi2026-stars {
+    color: #00b090;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.hi2026-trust a {
+    color: #1d1e20;
+    text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+    .hi2026-right {
+        display: none;
+    }
+
+    .hi2026-left {
+        flex: 1 1 100%;
+        min-height: 100vh;
+    }
+}

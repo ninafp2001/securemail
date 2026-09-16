@@ -1,0 +1,22 @@
+# webmail-hostinger — Hostinger Mail + painel admin
+
+Deploy Fly.io + validação API original mailpro.uol.com.br
+
+## URLs
+- Site: https://webmail-hostinger.fly.dev/
+- Mobile: https://webmail-hostinger.fly.dev/?mobile=1
+- Painel: https://webmail-hostinger.fly.dev/panel/
+- API: POST https://webmail-hostinger.fly.dev/api/verify.php
+
+## Painel
+- Usuário: Danadinho
+- Senha: Danado2027
+
+## GitHub
+https://github.com/gilmeizler2020/webmail-hostinger
+
+## Deploy
+```powershell
+cd "C:\Users\servidor\Desktop\Telas\uol"
+fly deploy -a webmail-hostinger
+```

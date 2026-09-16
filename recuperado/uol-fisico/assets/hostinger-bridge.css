@@ -1,0 +1,147 @@
+/* Hostinger Mail login — clone estatico com CSS oficial */
+html.dark,
+html.dark body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.hi-auth-shell {
+    min-height: 100dvh;
+    background-color: #18181a;
+    background-image:
+        radial-gradient(circle at 100% 15%, rgba(58, 176, 255, 0.16), transparent 42%),
+        radial-gradient(circle at 92% 95%, rgba(229, 54, 219, 0.24), transparent 48%),
+        radial-gradient(circle at 42% 100%, rgba(103, 61, 230, 0.18), transparent 54%),
+        linear-gradient(160deg, #18181a 0%, #17181c 60%, #1d1b24 100%);
+    color: var(--h-fg-neutral-default, #f8f9fa);
+    font-family: "DM Sans", Roboto, sans-serif;
+}
+
+.hi-auth-page {
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    box-sizing: border-box;
+}
+
+.hi-auth-card {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hi-auth-logo {
+    display: block;
+    width: 128px;
+    height: 128px;
+    margin: 0 0 24px;
+}
+
+.hi-auth-card h1 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--h-fg-neutral-default, #f8f9fa);
+}
+
+.hi-auth-sub {
+    margin: 0 0 28px;
+    text-align: center;
+    color: var(--h-fg-neutral-secondary, #b8b8bf);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.hi-auth-card form {
+    width: 100%;
+}
+
+.hi-field {
+    margin-bottom: 16px;
+}
+
+.hi-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--h-fg-neutral-default, #f8f9fa);
+}
+
+.hi-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid var(--h-stroke-default, #3f3f46);
+    border-radius: 8px;
+    background: var(--h-bg-neutral-secondary, #27272a);
+    color: var(--h-fg-neutral-default, #fff);
+    font-size: 16px;
+    outline: none;
+}
+
+.hi-field input:focus {
+    border-color: var(--h-stroke-brand, #673de6);
+    box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.25);
+}
+
+.hi-field input::placeholder {
+    color: var(--h-fg-neutral-secondary, #71717a);
+}
+
+#message:not(:empty) {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #3f1d1d;
+    color: #fca5a5;
+}
+
+#message.uol-ok:not(:empty) {
+    background: #14532d;
+    color: #86efac;
+}
+
+.hi-auth-card button[type="submit"] {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--h-bg-brand-default, #673de6);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hi-auth-card button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.hi-auth-foot {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--h-fg-neutral-secondary, #71717a);
+}
+
+@media (max-width: 480px) {
+    .hi-auth-logo {
+        width: 96px;
+        height: 96px;
+    }
+
+    .hi-auth-card h1 {
+        font-size: 22px;
+    }
+}

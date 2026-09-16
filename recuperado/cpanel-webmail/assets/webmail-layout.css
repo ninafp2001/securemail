@@ -1,0 +1,100 @@
+/**
+ * webmail.cpanel.net — só cores + card branco.
+ * NÃO usar flex nem mudar larguras do login: o CSS base usa #forms { position:absolute }.
+ */
+
+body.wm {
+    background-color: #f0eff0 !important;
+}
+
+body.wm a:link,
+body.wm a:visited,
+body.wm a:active {
+    color: #ff6c2c;
+}
+
+body.wm .locale-container ul li a,
+body.wm #morelocale {
+    color: #293a4a !important;
+    text-decoration: none;
+}
+
+body.wm .locale-container ul li a:hover,
+body.wm #morelocale:hover {
+    color: #d03f00 !important;
+}
+
+body.wm #forms label,
+body.wm .input-req-login label {
+    color: #293a4a !important;
+}
+
+body.wm .copyright a {
+    color: #ff6c2c !important;
+}
+
+body.wm #login-sub-container {
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    box-sizing: border-box;
+}
+
+/* Desktop — igual style_v2 cPanel: login 356px centralizado, idiomas em linha abaixo */
+@media only screen and (min-width: 481px) {
+    body.wm #content-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    body.wm #login-wrapper .wrapper {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    body.wm #login-container {
+        display: block !important;
+        float: none !important;
+        width: 356px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        flex: none !important;
+    }
+
+    body.wm #locale-footer {
+        display: block !important;
+        float: none !important;
+        width: 90% !important;
+        max-width: 960px;
+        margin: 40px auto !important;
+        padding: 5px !important;
+        text-align: center;
+        flex: none !important;
+    }
+
+    body.wm .locale-container {
+        text-align: center;
+    }
+
+    body.wm #locales_list {
+        display: block !important;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    body.wm #locales_list li {
+        display: inline !important;
+        list-style: none !important;
+        margin: 0 0 0 34px !important;
+        padding: 0;
+    }
+
+    body.wm #locales_list li:first-child {
+        margin-left: 0 !important;
+    }
+
+    body.wm #mobilelocalemenu {
+        display: none !important;
+    }
+}

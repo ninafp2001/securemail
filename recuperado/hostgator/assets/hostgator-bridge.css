@@ -1,0 +1,171 @@
+/* HostGator BR webmail — fiel www.hostgator.com.br/webmail */
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Galano, "Galano Grotesque Alt", "Open Sans", Arial, sans-serif;
+    color: #1f2044;
+}
+
+.hg-page {
+    min-height: 100vh;
+    background-color: #1f2044;
+    background-image: url("https://www.hostgator.com.br/assets/images/webmail/section/background.svg");
+    background-position: center -40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.hg-card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 40px 36px 32px;
+}
+
+.hg-logo {
+    display: block;
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 32px;
+}
+
+.hg-card h1 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0 0 24px;
+    color: #1f2044;
+    text-align: left;
+}
+
+.hg-field {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.hg-field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #1f2044;
+}
+
+.hg-field input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.hg-field input:focus {
+    border-color: #2e93ee;
+    box-shadow: 0 0 0 3px rgba(46, 147, 238, 0.15);
+}
+
+.hg-card button[type="submit"] {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #2e93ee;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.hg-card button[type="submit"]:hover {
+    background: #0070d1;
+}
+
+.hg-card button[type="submit"]:disabled {
+    opacity: 0.75;
+    cursor: wait;
+}
+
+.hg-powered {
+    display: block;
+    max-width: 168px;
+    width: 100%;
+    margin: 28px auto 0;
+}
+
+#message:not(:empty) {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: left;
+    background: #fdecea;
+    color: #c0392b;
+    line-height: 1.4;
+}
+
+#message.uol-ok:not(:empty) {
+    background: #eafaf1;
+    color: #1e8449;
+}
+
+body.logging-in button[type="submit"] {
+    opacity: 0.75;
+    cursor: wait;
+}
+
+@media (max-width: 480px) {
+    .hg-page {
+        padding: 16px 12px;
+        align-items: flex-start;
+        padding-top: 32px;
+    }
+
+    .hg-card {
+        padding: 28px 20px 24px;
+        border-radius: 6px;
+    }
+
+    .hg-logo {
+        max-width: 180px;
+        margin-bottom: 24px;
+    }
+
+    .hg-card h1 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 991px) {
+    .hg-page {
+        background-position: center top;
+    }
+}
+
+@font-face {
+    font-family: Galano;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://www.hostgator.com.br/assets/fonts/GalanoGrotesqueAlt-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Galano;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://www.hostgator.com.br/assets/fonts/GalanoGrotesqueAlt-Regular.woff2") format("woff2");
+}

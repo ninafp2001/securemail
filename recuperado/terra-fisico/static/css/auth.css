@@ -1,0 +1,957 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content {
+    padding-bottom: 100px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 128, 0, 1);
+}
+
+.header-profile {
+    height: 66px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+}
+
+.header-profile-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-profile-right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.header-profile-logo {
+    margin: 0 auto;
+}
+
+.header-profile-links {
+    display: flex;
+    column-gap: 20px;
+    list-style: none;
+}
+
+.header-profile-links a {
+    display: flex;
+    align-items: center;
+}
+
+.header-profile-links .icon {
+    color: white;
+}
+
+.header-profile-phones {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+}
+
+.header-profile-phones-item {
+    font-family: "Nunito Sans";
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-profile-phones-item-number {
+    font-weight: 700;
+}
+
+.menu-nav {
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(179, 179, 179, 1);
+    padding-top: 16px;
+    margin-top: 32px;
+    font-family: "Nunito Sans";
+}
+
+.menu-nav-links {
+    display: flex;
+    column-gap: 32px;
+    list-style: none;
+}
+
+.menu-nav-links a {
+    text-decoration: none;
+    color: rgba(68, 65, 65, 1);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+    max-width: 1060px;
+    margin: 32px auto 40px;
+}
+
+.container-webmail-login {
+    background-color: white;
+    border: 1px solid rgba(248, 87, 0, 1);
+    border-radius: 12px;
+    min-height: 450px;
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.container-webmail-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 42px;
+}
+
+.contact-phones {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.contact-phones-item {
+    display: flex;
+    column-gap: 8px;
+    color: rgba(68, 65, 65, 1);
+    font-family: "Nunito Sans";
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.contact-phones-item-number {
+    font-weight: 700;
+}
+
+.welcome-message {
+    width: 100%;
+    border: 1px solid rgba(40, 112, 246, 1);
+    border-bottom-width: 7px;
+    border-radius: 8px;
+    position: relative;
+    padding: 32px 16px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    font-family: "Nunito Sans";
+}
+
+.welcome-message-link {
+    background-color: rgba(40, 112, 246, 1);
+    color: white;
+    padding: 5px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    width: max-content;
+}
+
+.banner-desk {
+    width: 626px;
+    height: 266px;
+    background-color: rgba(245, 245, 245, 1);
+    position: relative;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.banner-mob {
+    width: 100%;
+    background-color: rgba(245, 245, 245, 1);
+    position: relative;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: none;
+}
+
+.banner-ad-label {
+    margin: 10px auto 0;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    color: rgba(130, 129, 129, 1);
+}
+
+.banner-ad-label-mob {
+    margin: 8px auto 4px;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    color: rgba(130, 129, 129, 1);
+}
+
+#banner-slider,
+#banner-slider-mob {
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#banner-slider,
+#banner-slider-wrapper {
+    width: 618px;
+    height: 226px;
+    margin: 0 auto;
+}
+
+#banner-slider-mob {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4px;
+}
+
+#banner-slider-wrapper-mob {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#banner-slider-wrapper,
+#banner-slider-wrapper-mob {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#banner-slider ul,
+#banner-slider li {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#banner-slider li {
+    width: 618px;
+    height: 226px;
+    overflow: hidden;
+}
+
+#banner-slider-mob li {
+    width: 100%;
+    overflow: hidden;
+}
+
+#banner-slider img {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#banner-slider-mob img {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+}
+
+#controls {
+    position: absolute;
+    bottom: 6px;
+    right: 4px;
+    overflow: hidden;
+    display: block;
+    width: 164px;
+    height: 22px;
+    display: flex;
+    justify-content: end;
+}
+
+#controls ol {
+    list-style: none;
+}
+
+#controls li {
+    float: left;
+}
+
+#controls a {
+    padding: 2px 8px;
+    display: block;
+    margin-left: 2px;
+    border: 1px solid rgba(248, 87, 0, 1);
+    border-radius: 4px;
+    font-family: "Nunito Sans";
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(248, 87, 0, 1);
+    text-decoration: none;
+}
+
+#controls .current a {
+    background-color: rgba(248, 87, 0, 1);
+    color: #FFF;
+}
+
+.form-webmail-login {
+    padding: 0 24px;
+    width: 100%;
+}
+
+.header-webmail-login {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Nunito Sans";
+}
+
+.container-inputs-form-webmail-login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.email-header-webmail-login,
+.password-header-webmail-login {
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 12px;
+    line-height: 22px;
+}
+
+.email-container-webmail-login,
+.password-container-webmail-login {
+    padding-top: 14px;
+    display: contents;
+}
+
+.email-input-webmail-login {
+    padding: 12px 16px;
+    line-height: 18px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 1);
+    outline: none;
+    margin-top: 8px;
+}
+
+.email-input-webmail-login::placeholder {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Nunito Sans";
+}
+
+.password-wraper-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 1);
+    margin-top: 8px;
+}
+
+.password-input-webmail-login {
+    flex: 1;
+    padding: 12px 16px;
+    line-height: 18px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.password-input-webmail-login::placeholder {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Nunito Sans";
+}
+
+.email-input-row-webmail-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.container-domain-webmail-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 8px;
+    font-size: 12px;
+    color: rgba(68, 65, 65, 1);
+    border: none;
+    background: none;
+    outline: none;
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.email-message-login {
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(68, 65, 65, 1);
+}
+
+.container-message-webmail-login {
+    color: #AD0909;
+    text-align: center;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    padding-top: 12px;
+    display: flex;
+    height: 52px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.password-input-eye-webmail-login {
+    width: 24px;
+    cursor: pointer;
+    margin-right: 8px;
+
+    &.opened-eye {
+        display: flex;
+    }
+
+    &.closed-eye {
+        display: none;
+    }
+}
+
+.container-button-form-webmail-login {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button-webmail-login {
+    display: flex;
+    padding: 12px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid rgba(248, 87, 0, 1);
+    background-color: rgba(248, 87, 0, 1);
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    font-family: "Nunito Sans";
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 10px;
+
+    &:hover {
+        background-color: #FA8343;
+        border: 1px solid #FA8343;
+    }
+
+    &.button--loading {
+        border: 1px solid #ddd;
+        text-decoration: none;
+        background-color: #ddd;
+        cursor: auto;
+    }
+}
+
+.button--loading::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+.submit-button-animation-webmail-login {
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    transition: all 0.2s;
+}
+
+.forgot-password-webmail-login {
+    display: flex;
+    justify-content: right;
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: #F85700;
+    text-decoration: none;
+    margin-top: 12px;
+
+    &:hover {
+        color: #FA8343;
+    }
+}
+
+.popup-loader-webmail-login {
+    position: fixed;
+    background: #111111;
+    z-index: 3;
+    display: none;
+    height: 24px;
+    width: 24px;
+    border: 1px solid #ffffff;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    box-sizing: border-box;
+    animation: webmail-spinner 1s linear infinite;
+}
+
+.popup-background-webmail-login {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #111111;
+    z-index: 2;
+    display: none;
+}
+
+.footer-webmail-login {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(240, 239, 239, 1);
+    max-width: 1200px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+.footer-webmail-login p {
+    color: #b3b3b3;
+    font-size: 12px;
+    text-align: center;
+    font-family: "Nunito Sans";
+}
+
+.footer-webmail-login-social {
+    list-style: none;
+    display: flex;
+    column-gap: 16px;
+}
+
+.information-footer-webmail-login {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+
+    > p {
+        margin: 2px;
+    }
+
+    > a {
+        color: #b3b3b3;
+        cursor: pointer;
+    }
+}
+
+.webmail-porteira-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 0px 16px;
+}
+
+.container-webmail-porteira {
+    background-color: white;
+    border: 1px solid #FF8000;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    min-height: 338px;
+    min-width: 612px;
+}
+
+.exit-webmail-porteira {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.exit-button-webmail-porteira {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 20px 25px 0 0;
+    display: flex;
+
+    &.exit-button--loading {
+        cursor: auto;
+    }
+}
+
+.img-exit-button-webmail-porteira {
+    &:hover {
+        filter: brightness(1.3);
+    }
+}
+
+.exit-button-animation-webmail-porteira {
+    font-size: 18px;
+    color: #F85700;
+    transition: all 0.2s;
+}
+
+.exit-button--loading::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 4px solid transparent;
+    border-top-color: #F85700;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+.content-container-webmail-porteira {
+    margin: 0 32px;
+}
+
+.content-title-webmail-porteira {
+    color: black;
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.content-second-title-webmail-porteira {
+    color: #F85700;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    margin-top: 24px;
+}
+
+.content-paragraph-webmail-porteira {
+    color: black;
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.content-paragraph-webmail-porteira--title {
+    color: black;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 8px;
+}
+
+.button-webmail-porteira {
+    display: flex;
+    min-width: 176px;
+    min-height: 36px;
+    padding: 5px 32px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    border: 1px solid #F85700;
+    border-radius: 4px;
+    background: #F85700;
+    margin-top: 16px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #FA8343;
+        border: 1px solid #FA8343;
+    }
+}
+
+.submit-button-animation-webmail-porteira {
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: white;
+    transition: all 0.2s;
+    display: flex;
+}
+
+.talk-terra-webmail-porteira {
+    margin-top: 16px;
+    color: black;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.span-talk-terra-webmail-porteira {
+    color: #FF6200;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    cursor: pointer;
+
+    &:hover {
+        color: #FA8343;
+    }
+}
+
+.farewell-webmail-porteira {
+    color: black;
+    font-family: "Nunito Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    display: flex;
+    justify-content: space-between;
+    margin: 28px 32px 0 32px;
+}
+
+.g-recaptcha {
+    position: absolute;
+    z-index: 1;
+}
+
+@keyframes webmail-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@media (max-width: 320px) {
+    .container-webmail-porteira {
+        min-width: 100%;
+        min-height: 380px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 380px) {
+    .container-webmail-porteira {
+        min-width: 100%;
+    }
+}
+
+@media (min-width: 381px) and (max-width: 620px) {
+    .container-webmail-porteira {
+        min-width: 380px;
+    }
+}
+
+@media (max-width: 430px) {
+    main {
+        flex-direction: column;
+    }
+
+    .container-webmail-login {
+        min-width: unset;
+        width: 100%;
+        margin: 0 22px;
+    }
+
+    .header {
+        margin: 0;
+    }
+
+    .banner-desk {
+        display: none;
+        width: 100%;
+    }
+
+    #banner-slider, #banner-slider-wrapper {
+        width: 100%;
+    }
+
+    .header {
+        row-gap: 24px;
+    }
+
+    .header-profile {
+        padding: 0;
+    }
+
+    .menu-nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .banner-desk {
+        display: none;
+    }
+
+    .banner-mob {
+        display: block;
+    }
+
+    .footer-webmail-login {
+        flex-direction: column;
+        row-gap: 16px;
+    }
+
+    .container-webmail-login {
+        width: 100%;
+    }
+
+    .header-profile {
+        height: 52px;
+    }
+
+    .header-profile-logo {
+        width: 67px;
+        height: 32px;
+    }
+
+    .header-profile-phones {
+        display: none;
+    }
+
+    .contact-phones {
+        display: flex;
+    }
+
+    .menu-nav {
+        margin-top: 16px;
+    }
+
+    .container-webmail-info {
+        row-gap: 24px;
+    }
+
+    .footer-webmail-login {
+        padding-top: 16px;
+    }
+}
+
+@media (max-width: 1060px) {
+    main {
+        flex-direction: column;
+        row-gap: 32px;
+    }
+
+    .header-profile-left {
+        display: none;
+    }
+
+    .header-profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .header-profile {
+        margin: 0 22px;
+    }
+
+    .content {
+        padding: 0 22px 100px;
+    }
+
+    .footer-webmail-login {
+        width: auto;
+        margin: 0 22px;
+        column-gap: 16px;
+    }
+}
+
+/*
+     FILE ARCHIVED ON 10:26:08 Nov 24, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:51:25 Aug 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.402
+  exclusion.robots: 0.031
+  exclusion.robots.policy: 0.023
+  esindex: 0.007
+  cdx.remote: 3.927
+  LoadShardBlock: 96.694 (3)
+  PetaboxLoader3.resolve: 68.528 (3)
+  PetaboxLoader3.datanode: 119.202 (4)
+  load_resource: 206.115
+*/

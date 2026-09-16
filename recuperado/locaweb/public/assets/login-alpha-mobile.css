@@ -1,0 +1,83 @@
+/* Ajustes mínimos — skin alpha_mobile oficial (webmail-seguro.com.br) */
+
+#top td#logo {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+#top td#logo img {
+  max-width: 220px;
+  height: auto;
+}
+
+#content h2 {
+  margin: 0 0 14px;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: left;
+}
+
+#login_border .text {
+  margin: 0 0 12px;
+}
+
+#login_border label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: normal;
+}
+
+#loginBox #message {
+  position: static;
+  display: none;
+  margin-bottom: 10px;
+}
+
+#loginBox #message.visible {
+  display: block;
+}
+
+#message.global-msg {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 5px;
+  right: 5px;
+  z-index: 100;
+}
+
+#message.global-msg.visible {
+  display: block;
+}
+
+#message.global-msg div {
+  margin: 0 auto;
+  min-height: 22px;
+  padding: 8px 10px;
+}
+
+#message.global-msg div.warning,
+#message.global-msg div.error {
+  background-color: #ef9398;
+  border: 1px solid #dc5757;
+  color: #fff;
+}
+
+#message.global-msg div.loading {
+  background-color: #fffef4;
+  border: 1px solid #b9d5f1;
+  color: #333;
+}
+
+#login_border input.field-error {
+  border: 1px solid #dc5757 !important;
+  background-color: #fff5f5;
+}
+
+.lm-mobile-showpass {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #006699;
+  text-decoration: none;
+}
