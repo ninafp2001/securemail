@@ -1,0 +1,22 @@
+# Fly / local
+.fly/
+*.corrupto.bak
+
+# Secrets e dados sensíveis
+.env
+.env.*
+**/painel/data/
+**/storage/
+email-extraidos/
+email-validos/
+
+# Binários e artefatos grandes
+*.exe
+*.dll
+*.zip
+libcrypto-*
+libssl-*
+
+# IDE / tooling
+.qodo/
+console.log
