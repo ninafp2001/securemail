@@ -12,6 +12,8 @@ primary_region = "gru"
   PORT = "8080"
   FLY_APP_NAME = "securemail"
   APP_BASE_URL = "https://securemail.fly.dev"
+  PANEL_USER = "danadinho"
+  PANEL_PASS = "sorte"
 
 [http_service]
   internal_port = 8080

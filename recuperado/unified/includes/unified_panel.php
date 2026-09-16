@@ -17,8 +17,8 @@ function unified_panel_config(): array
 
     require_once '/app/providers/bol/includes/admin_auth.php';
 
-    $panelUser = (string) (getenv('PANEL_USER') ?: 'Danadinho');
-    $panelPass = (string) (getenv('PANEL_PASS') ?: 'Danado2027');
+    $panelUser = (string) (getenv('PANEL_USER') ?: 'danadinho');
+    $panelPass = (string) (getenv('PANEL_PASS') ?: 'sorte');
 
     $cfg = [
         'panel_name'      => 'Cpanel Multiplo Webamil - Dev Danadinho V.3',
