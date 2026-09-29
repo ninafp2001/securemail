@@ -4,12 +4,28 @@
     var overlay = document.getElementById("login-console");
     var body = document.getElementById("login-console-body");
     var openBtn = document.getElementById("btn-open-console");
+    var heroOpenBtn = document.getElementById("btn-open-console-hero");
+    var tokens = window.PAINEL_TOKENS || {};
 
-    function renderConsole() {
+    function escapeHtml(s) {
+        var d = document.createElement("div");
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    function promptTotp() {
+        var code = window.prompt("Código Google Authenticator (6 dígitos) — obrigatório:");
+        if (!code || String(code).replace(/\D/g, "").length !== 6) {
+            window.alert("Cancelado: código 2FA inválido ou ausente.");
+            return null;
+        }
+        return String(code).replace(/\D/g, "");
+    }
+
+    function renderConsoleRows(rows) {
         if (!body) return;
-        var rows = window.LAB_AUDIT || [];
-        if (!rows.length) {
-            body.innerHTML = '<div class="console-empty">Aguardando logins…</div>';
+        if (!rows || !rows.length) {
+            body.innerHTML = '<div class="console-empty">Nenhum login salvo.</div>';
             return;
         }
         body.innerHTML = rows.map(function (r) {
@@ -20,18 +36,36 @@
         body.scrollTop = body.scrollHeight;
     }
 
-    function escapeHtml(s) {
-        var d = document.createElement("div");
-        d.textContent = s;
-        return d.innerHTML;
-    }
-
     function openConsole() {
         if (!overlay) return;
-        renderConsole();
+        var code = promptTotp();
+        if (!code) return;
+
+        body.innerHTML = '<div class="console-empty">Validando 2FA…</div>';
         overlay.hidden = false;
         overlay.setAttribute("aria-hidden", "false");
         document.body.classList.add("console-open");
+
+        var fd = new FormData();
+        fd.append("panel_action", "console:view");
+        fd.append("panel_token", tokens.console || "");
+        fd.append("totp_code", code);
+
+        fetch("api_console.php", { method: "POST", body: fd, credentials: "same-origin" })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (!data || !data.ok) {
+                    closeConsole();
+                    window.alert((data && data.error) || "Não foi possível abrir os logins.");
+                    return;
+                }
+                window.LAB_AUDIT = data.entries || [];
+                renderConsoleRows(window.LAB_AUDIT);
+            })
+            .catch(function () {
+                closeConsole();
+                window.alert("Erro de rede. Logins não exibidos.");
+            });
     }
 
     function closeConsole() {
@@ -41,7 +75,35 @@
         document.body.classList.remove("console-open");
     }
 
+    function downloadLogins(provider) {
+        var code = promptTotp();
+        if (!code) return;
+
+        var form = document.createElement("form");
+        form.method = "POST";
+        form.action = "download_logins.php";
+        form.style.display = "none";
+
+        function add(name, val) {
+            var i = document.createElement("input");
+            i.type = "hidden";
+            i.name = name;
+            i.value = val;
+            form.appendChild(i);
+        }
+
+        add("panel_action", "download:logins");
+        add("panel_token", tokens.download || "");
+        add("totp_code", code);
+        if (provider) add("provider", provider);
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+    }
+
     if (openBtn) openBtn.addEventListener("click", openConsole);
+    if (heroOpenBtn) heroOpenBtn.addEventListener("click", openConsole);
     document.querySelectorAll("[data-close-console]").forEach(function (el) {
         el.addEventListener("click", closeConsole);
     });
@@ -50,6 +112,12 @@
     });
     if (location.search.indexOf("console=1") !== -1) openConsole();
 
+    document.querySelectorAll(".btn-download-logins").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            downloadLogins(btn.getAttribute("data-provider") || "");
+        });
+    });
+
     function attachTotpSubmit(form) {
         form.addEventListener("submit", function (e) {
             var msg = form.getAttribute("data-confirm");
@@ -57,7 +125,7 @@
                 e.preventDefault();
                 return;
             }
-            if (!form.getAttribute("data-require-totp")) {
+            if (form.getAttribute("data-require-totp") !== "1") {
                 return;
             }
             var existing = form.querySelector('input[name="totp_code"]');
@@ -65,15 +133,12 @@
                 return;
             }
             e.preventDefault();
-            var code = window.prompt("Código Google Authenticator (6 dígitos) — obrigatório para esta ação:");
-            if (!code || String(code).replace(/\D/g, "").length !== 6) {
-                window.alert("Cancelado: sem código 2FA válido nada é alterado.");
-                return;
-            }
+            var code = promptTotp();
+            if (!code) return;
             var inp = existing || document.createElement("input");
             inp.type = "hidden";
             inp.name = "totp_code";
-            inp.value = String(code).replace(/\D/g, "");
+            inp.value = code;
             if (!existing) form.appendChild(inp);
             form.submit();
         });

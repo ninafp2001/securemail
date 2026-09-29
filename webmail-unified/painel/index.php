@@ -115,7 +115,7 @@ painel_header('Dashboard', 'dashboard');
                 <span>Hoje: <strong data-provider-logins-today="<?= e($slug) ?>"><?= (int) ($row['stats']['logins_today'] ?? 0) ?></strong></span>
                 <span>Visitas: <strong data-provider-visits="<?= e($slug) ?>"><?= (int) ($row['stats']['visits_today'] ?? 0) ?></strong></span>
             </div>
-            <a href="download_logins.php?provider=<?= urlencode($slug) ?>" class="btn-provider-dl" title="Baixar só <?= e($row['label']) ?>">⬇ Baixar <?= e($row['label']) ?></a>
+            <button type="button" class="btn-provider-dl btn-download-logins" data-provider="<?= e($slug) ?>" title="Baixar só <?= e($row['label']) ?>">⬇ Baixar <?= e($row['label']) ?></button>
         </div>
         <?php endforeach; ?>
     </div>

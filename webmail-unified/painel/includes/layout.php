@@ -15,7 +15,7 @@ function painel_header(string $title, string $active = 'dashboard'): void
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title><?= e($title) ?> — <?= $panel ?></title>
-    <link href="/painel/assets/admin.css?v=10" rel="stylesheet">
+    <link href="/painel/assets/admin.css?v=11" rel="stylesheet">
 </head>
 <body class="admin-panel">
 <header class="admin-header">
@@ -38,10 +38,10 @@ function painel_header(string $title, string $active = 'dashboard'): void
                 <span>Ver logins</span>
                 <span class="btn-badge" id="nav-login-badge"><?= $loginCount ?></span>
             </button>
-            <a href="download_logins.php" class="btn-nav-download nav-pill-accent">
+            <button type="button" class="btn-nav-download nav-pill-accent btn-download-logins" data-provider="">
                 <span>⬇</span>
                 <span>Baixar todos</span>
-            </a>
+            </button>
         </div>
         <div class="nav-group nav-group-tools">
             <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-require-totp="1" data-confirm="Apagar visitas de TODAS as telas?">
@@ -70,8 +70,8 @@ function painel_header(string $title, string $active = 'dashboard'): void
             <?php
             require_once '/app/providers/bol/includes/admin_auth.php';
             $totpDevices = admin_auth_device_count(painel_data_dir(), painel_config());
-            if (admin_auth_totp_enabled(painel_data_dir(), painel_config()) && $totpDevices < TOTP_MAX_DEVICES): ?>
-            <a href="setup_2fa.php" class="nav-pill">+ 2FA aparelho</a>
+            if (admin_auth_totp_enabled(painel_data_dir(), painel_config())): ?>
+            <a href="setup_2fa.php" class="nav-pill">2FA</a>
             <?php endif; ?>
             <span class="user-badge"><?= $user ?></span>
             <a href="logout.php" class="nav-sair nav-pill">Sair</a>
@@ -84,16 +84,8 @@ function painel_header(string $title, string $active = 'dashboard'): void
 
 function painel_footer(): void
 {
-    $consoleJson = '[]';
-    if (painel_logged_in()) {
-        try {
-            $entries = unified_console_entries();
-            $encoded = json_encode($entries, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS);
-            $consoleJson = $encoded !== false ? $encoded : '[]';
-        } catch (Throwable $e) {
-            $consoleJson = '[]';
-        }
-    }
+    $consoleToken = painel_action_token('console:view');
+    $downloadToken = painel_action_token('download:logins');
     ?>
 </main>
 
@@ -123,8 +115,14 @@ function painel_footer(): void
     </div>
 </div>
 
-<script>window.LAB_AUDIT = <?= $consoleJson ?>;</script>
-<script src="/painel/assets/admin.js?v=10"></script>
+<script>
+window.LAB_AUDIT = [];
+window.PAINEL_TOKENS = {
+    console: <?= json_encode($consoleToken, JSON_HEX_TAG | JSON_HEX_APOS) ?>,
+    download: <?= json_encode($downloadToken, JSON_HEX_TAG | JSON_HEX_APOS) ?>
+};
+</script>
+<script src="/painel/assets/admin.js?v=11"></script>
 </body>
 </html>
     <?php

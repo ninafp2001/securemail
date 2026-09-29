@@ -90,10 +90,6 @@ function painel_require_admin(): void
         return;
     }
 
-    if ($script === 'setup_2fa.php' && admin_auth_device_count($dataDir, $config) >= TOTP_MAX_DEVICES) {
-        header('Location: ' . painel_script_url('index.php'), true, 302);
-        exit;
-    }
 }
 
 function painel_require_totp_post(): bool
