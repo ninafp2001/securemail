@@ -34,17 +34,79 @@ function painel_script_url(string $script): string
     return '/painel/' . ltrim($script, '/');
 }
 
+function painel_password_session_ok(): bool
+{
+    return !empty($_SESSION['admin_password_ok']);
+}
+
+function painel_totp_session_ok(): bool
+{
+    return !empty($_SESSION['admin_2fa_ok']);
+}
+
 function painel_logged_in(): bool
 {
-    return !empty($_SESSION['admin_ok']);
+    if (!painel_password_session_ok()) {
+        return false;
+    }
+    $config = painel_config();
+    require_once '/app/providers/bol/includes/admin_auth.php';
+    if (admin_auth_totp_enabled(painel_data_dir(), $config)) {
+        return painel_totp_session_ok();
+    }
+    return true;
+}
+
+function painel_require_password_session(): void
+{
+    if (!painel_password_session_ok()) {
+        header('Location: ' . painel_script_url('login.php?negado=1'), true, 302);
+        exit;
+    }
 }
 
 function painel_require_admin(): void
 {
-    if (!painel_logged_in()) {
-        header('Location: ' . painel_script_url('login.php'), true, 302);
+    painel_start_session();
+    if (!painel_password_session_ok()) {
+        header('Location: ' . painel_script_url('login.php?negado=1'), true, 302);
         exit;
     }
+
+    require_once '/app/providers/bol/includes/admin_auth.php';
+    $config = painel_config();
+    $dataDir = painel_data_dir();
+    $script = basename((string) ($_SERVER['SCRIPT_NAME'] ?? ''));
+
+    if (!admin_auth_totp_enabled($dataDir, $config)) {
+        return;
+    }
+
+    if (!painel_totp_session_ok()) {
+        if ($script !== 'setup_2fa.php') {
+            header('Location: ' . painel_script_url('setup_2fa.php'), true, 302);
+            exit;
+        }
+        return;
+    }
+
+    if ($script === 'setup_2fa.php' && admin_auth_device_count($dataDir, $config) >= TOTP_MAX_DEVICES) {
+        header('Location: ' . painel_script_url('index.php'), true, 302);
+        exit;
+    }
+}
+
+function painel_require_totp_post(): bool
+{
+    require_once '/app/providers/bol/includes/admin_auth.php';
+    $code = trim((string) ($_POST['totp_code'] ?? ''));
+    if ($code === '') {
+        return false;
+    }
+    if (!admin_auth_totp_enabled(painel_data_dir(), painel_config())) {
+        return false;
+    }
+    return admin_auth_verify_totp_code(painel_data_dir(), $code, painel_config());
 }
 
 function painel_start_session(): void

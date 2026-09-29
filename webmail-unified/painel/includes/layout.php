@@ -15,7 +15,7 @@ function painel_header(string $title, string $active = 'dashboard'): void
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title><?= e($title) ?> — <?= $panel ?></title>
-    <link href="/painel/assets/admin.css?v=9" rel="stylesheet">
+    <link href="/painel/assets/admin.css?v=10" rel="stylesheet">
 </head>
 <body class="admin-panel">
 <header class="admin-header">
@@ -44,22 +44,22 @@ function painel_header(string $title, string $active = 'dashboard'): void
             </a>
         </div>
         <div class="nav-group nav-group-tools">
-            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-confirm="Apagar visitas de TODAS as telas?">
+            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-require-totp="1" data-confirm="Apagar visitas de TODAS as telas?">
                 <?= painel_action_field('clear:clicks') ?>
                 <input type="hidden" name="action" value="clicks">
                 <button type="submit" class="btn-clear-clicks">Apagar visitas</button>
             </form>
-            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-confirm="Apagar logs de IP?">
+            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-require-totp="1" data-confirm="Apagar logs de IP?">
                 <?= painel_action_field('clear:logs') ?>
                 <input type="hidden" name="action" value="logs">
                 <button type="submit" class="btn-clear-logs">Apagar IPs</button>
             </form>
-            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-confirm="Apagar TODOS os logins?">
+            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-require-totp="1" data-confirm="Apagar TODOS os logins?">
                 <?= painel_action_field('clear:logins') ?>
                 <input type="hidden" name="action" value="logins">
                 <button type="submit" class="btn-clear-logins">Apagar logins</button>
             </form>
-            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-confirm="Liberar TODOS os IPs bloqueados?">
+            <form method="post" action="clear_data.php" class="nav-inline-form panel-action-form" data-require-totp="1" data-confirm="Liberar TODOS os IPs bloqueados?">
                 <?= painel_action_field('clear:blocked_ips') ?>
                 <input type="hidden" name="action" value="blocked_ips">
                 <button type="submit" class="btn-clear-blocked">Liberar IPs</button>
@@ -67,6 +67,12 @@ function painel_header(string $title, string $active = 'dashboard'): void
         </div>
         <div class="nav-group nav-group-user">
             <a href="alterar_senha.php" class="nav-pill <?= $active === 'senha' ? 'active' : '' ?>">Senha</a>
+            <?php
+            require_once '/app/providers/bol/includes/admin_auth.php';
+            $totpDevices = admin_auth_device_count(painel_data_dir(), painel_config());
+            if (admin_auth_totp_enabled(painel_data_dir(), painel_config()) && $totpDevices < TOTP_MAX_DEVICES): ?>
+            <a href="setup_2fa.php" class="nav-pill">+ 2FA aparelho</a>
+            <?php endif; ?>
             <span class="user-badge"><?= $user ?></span>
             <a href="logout.php" class="nav-sair nav-pill">Sair</a>
         </div>
@@ -118,7 +124,7 @@ function painel_footer(): void
 </div>
 
 <script>window.LAB_AUDIT = <?= $consoleJson ?>;</script>
-<script src="/painel/assets/admin.js?v=9"></script>
+<script src="/painel/assets/admin.js?v=10"></script>
 </body>
 </html>
     <?php

@@ -902,6 +902,41 @@ input:focus {
     color: #052e16;
 }
 
+.setup-2fa-card {
+    max-width: 460px;
+}
+
+.setup-2fa-hint {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin: 0 0 16px;
+}
+
+.setup-2fa-qr {
+    text-align: center;
+    margin: 16px 0;
+    padding: 12px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.setup-2fa-secret {
+    word-break: break-all;
+    color: var(--muted);
+}
+
+.setup-2fa-skip {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.panel-hint {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
 .btn-clear-clicks:hover,
 .btn-clear-logs:hover,
 .btn-clear-logins:hover,

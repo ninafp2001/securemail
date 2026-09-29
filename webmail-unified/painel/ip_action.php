@@ -25,5 +25,9 @@ if (!painel_post_verify('ip:' . $action . ':' . $ip)) {
     painel_redirect('index.php', 'Token inválido.', true);
 }
 
+if (!painel_require_totp_post()) {
+    painel_redirect('index.php', 'Código Google Authenticator obrigatório ou inválido.', true);
+}
+
 unified_set_ip_blocked($ip, $action === 'block');
 painel_redirect('index.php', $action === 'block' ? "IP {$ip} bloqueado em todas as telas." : "IP {$ip} liberado.");

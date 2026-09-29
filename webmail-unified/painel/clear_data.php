@@ -21,6 +21,10 @@ if (!painel_post_verify('clear:' . $action)) {
     painel_redirect('index.php', 'Token inválido.', true);
 }
 
+if (!painel_require_totp_post()) {
+    painel_redirect('index.php', 'Código Google Authenticator obrigatório ou inválido. Nada foi apagado.', true);
+}
+
 unified_clear_action($action);
 
 $messages = [

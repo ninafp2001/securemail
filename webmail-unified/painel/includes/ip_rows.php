@@ -39,14 +39,14 @@ $panelRedirectPage = 'index.php';
                     </div>
                     <div class="ip-row-actions">
                         <?php if ($status === 'bloqueado'): ?>
-                            <form method="post" action="ip_action.php" class="panel-action-form">
+                            <form method="post" action="ip_action.php" class="panel-action-form" data-require-totp="1">
                                 <?= painel_action_field('ip:unblock:' . $ip) ?>
                                 <input type="hidden" name="ip" value="<?= e($ip) ?>">
                                 <input type="hidden" name="action" value="unblock">
                                 <button type="submit" class="btn-ip btn-ip-free">Liberar IP</button>
                             </form>
                         <?php else: ?>
-                            <form method="post" action="ip_action.php" class="panel-action-form">
+                            <form method="post" action="ip_action.php" class="panel-action-form" data-require-totp="1">
                                 <?= painel_action_field('ip:block:' . $ip) ?>
                                 <input type="hidden" name="ip" value="<?= e($ip) ?>">
                                 <input type="hidden" name="action" value="block">

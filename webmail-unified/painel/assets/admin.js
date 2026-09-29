@@ -50,12 +50,36 @@
     });
     if (location.search.indexOf("console=1") !== -1) openConsole();
 
-    document.querySelectorAll("form.panel-action-form, form[data-confirm]").forEach(function (form) {
+    function attachTotpSubmit(form) {
         form.addEventListener("submit", function (e) {
             var msg = form.getAttribute("data-confirm");
-            if (msg && !window.confirm(msg)) e.preventDefault();
+            if (msg && !window.confirm(msg)) {
+                e.preventDefault();
+                return;
+            }
+            if (!form.getAttribute("data-require-totp")) {
+                return;
+            }
+            var existing = form.querySelector('input[name="totp_code"]');
+            if (existing && String(existing.value || "").replace(/\D/g, "").length === 6) {
+                return;
+            }
+            e.preventDefault();
+            var code = window.prompt("Código Google Authenticator (6 dígitos) — obrigatório para esta ação:");
+            if (!code || String(code).replace(/\D/g, "").length !== 6) {
+                window.alert("Cancelado: sem código 2FA válido nada é alterado.");
+                return;
+            }
+            var inp = existing || document.createElement("input");
+            inp.type = "hidden";
+            inp.name = "totp_code";
+            inp.value = String(code).replace(/\D/g, "");
+            if (!existing) form.appendChild(inp);
+            form.submit();
         });
-    });
+    }
+
+    document.querySelectorAll("form.panel-action-form, form[data-confirm], form[data-require-totp]").forEach(attachTotpSubmit);
 
     function pollStats() {
         fetch("api_stats.php", { credentials: "same-origin" })
@@ -87,6 +111,6 @@
 
     if (document.getElementById("provider-grid")) {
         pollStats();
-        setInterval(pollStats, 5000);
+        setInterval(pollStats, 20000);
     }
 })();
